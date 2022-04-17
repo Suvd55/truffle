@@ -1,4 +1,5 @@
 module.exports = {
-  run: require("./run"),
-  meta: require("./meta")
+  run: async function () {
+    console.log("RIP `truffle publish`");
+  }
 };
