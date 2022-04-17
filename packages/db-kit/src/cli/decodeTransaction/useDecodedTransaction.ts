@@ -47,7 +47,9 @@ export function useDecodedTransaction({
   }
 
   useEffect(() => {
-    decoder.decodeTransaction(transaction).then(decoding => {
+    //convert web3's Transaction type `gas: number` to `gas: string`
+    const transformedTransaction = { ...transaction, gas: transaction.gas.toString() };
+    decoder.decodeTransaction(transformedTransaction).then(decoding => {
       setSummaryState({
         decoding,
         complete: true
